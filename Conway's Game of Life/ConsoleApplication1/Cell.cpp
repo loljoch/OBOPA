@@ -2,10 +2,9 @@
 #include "Cell.h"
 
 
-Cell::Cell(int x, int y)
+Cell::Cell()
 {
-	coordinate.x = x;
-	coordinate.y = y;
+	neighBouringCells.reserve(8);
 }
 
 

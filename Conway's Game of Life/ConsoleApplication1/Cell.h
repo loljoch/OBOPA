@@ -1,21 +1,16 @@
 #pragma once
 
-struct Vector2
-{
-public:
-
-	int x;
-	int y;
-};
+#include <vector>
 
 class Cell
 {
 public:
-	Cell(int x, int y);
+	Cell();
 	~Cell();
 
 public:
-	Vector2 coordinate;
 	bool isDead;
+	bool willBeDead = false;
+	std::vector<Cell> neighBouringCells;
 };
 

@@ -152,12 +152,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Conway%27s Game of Life\ConsoleApplication1\AbstractBehaviour.h" />
     <ClInclude Include="..\..\Conway%27s Game of Life\ConsoleApplication1\Cell.h" />
     <ClInclude Include="..\..\Conway%27s Game of Life\ConsoleApplication1\Grid.h" />
+    <ClInclude Include="..\..\Conway%27s Game of Life\ConsoleApplication1\NormalBehaviourSet.h" />
     <ClInclude Include="..\..\Conway%27s Game of Life\ConsoleApplication1\pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Conway%27s Game of Life\ConsoleApplication1\AbstractBehaviour.cpp" />
     <ClCompile Include="..\..\Conway%27s Game of Life\ConsoleApplication1\Cell.cpp" />
+    <ClCompile Include="..\..\Conway%27s Game of Life\ConsoleApplication1\NormalBehaviourSet.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="..\..\Conway%27s Game of Life\ConsoleApplication1\Grid.cpp" />
     <ClCompile Include="..\..\Conway%27s Game of Life\ConsoleApplication1\pch.cpp">

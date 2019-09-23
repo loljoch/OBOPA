@@ -4,12 +4,31 @@
 #include "pch.h"
 #include <iostream>
 #include "grid.h"
+#include "NormalBehaviourSet.h"
+
+AbstractBehaviour *currentBehaviour() 
+{
+	return new NormalBehaviourSet();
+}
 
 int main()
 {
+	AbstractBehaviour *behaviour = currentBehaviour();
+
 	Grid* grid = new Grid(25, 25);
 
 	grid->coutGrid();
+
+
+	//for (auto &p : grid->grid)
+	//{
+	//	p.second.willBeDead = behaviour->amIAlive(AbstractBehaviour::All, p.second.neighBouringCells);
+	//}
+
+	//grid->updateGrid();
+
+	//grid->coutGrid();
+	
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

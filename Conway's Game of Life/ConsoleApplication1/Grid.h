@@ -1,5 +1,6 @@
 #pragma once
-#include <vector>
+#include <map>
+#include <tuple>
 #include "Cell.h"
 
 class Grid
@@ -10,9 +11,10 @@ public:
 	virtual ~Grid();
 
 	void coutGrid();
+	void updateGrid();
 
 public:
-	std::vector<Cell> grid;
-	Vector2 gridSize;
+	std::map<std::tuple<int, int>, Cell> grid;
+	int gridSize[2];
 };
 

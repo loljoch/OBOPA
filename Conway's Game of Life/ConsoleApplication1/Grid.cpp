@@ -1,44 +1,69 @@
 #include "pch.h"
 #include "Grid.h"
 #include <iostream>
+#include <vector>
 
 
 Grid::Grid(int xSize, int ySize)
 {
-	gridSize.x = xSize;
-	gridSize.y = ySize;
+	gridSize[0] = xSize;
+	gridSize[1] = ySize;
 
-	grid = std::vector<Cell>();
-	auto i = grid.end();
+	auto i = grid.rbegin();
 
 	for (size_t x = 0; x < xSize; x++)
 	{
 		for (size_t y = 0; y < ySize; y++)
 		{
-			Cell* cell = new Cell(x, y);
-			grid.insert(grid.end(), *cell);
+			grid[std::make_tuple(x, y)] = Cell();
+		}
+	}
+
+	for (size_t x = 0; x < xSize; x++)
+	{
+		for (size_t y = 0; y < ySize; y++)
+		{
+			//Calculates the cells around the current cell
+			std::vector<Cell> cells = { 
+			grid[std::make_tuple(x+1, y)], 
+			grid[std::make_tuple(x+1, y-1)], 
+			grid[std::make_tuple(x, y-1)], 
+			grid[std::make_tuple(x-1, y-1)], 
+			grid[std::make_tuple(x-1, y)], 
+			grid[std::make_tuple(x-1, y+1)],
+			grid[std::make_tuple(x, y+1)], 
+			grid[std::make_tuple(x+1, y+1)], };
+
+			grid[std::make_tuple(x, y)].neighBouringCells = cells;
 		}
 	}
 }
 
 void Grid::coutGrid() 
 {
-	for (size_t i = 0; i < grid.size(); i++)
+	for (size_t y = 0; y < gridSize[1]; y++)
 	{
-		if (grid[i].isDead)
+		for (size_t x = 0; x < gridSize[0]; x++)
 		{
-			std::cout << " X ";
-		}
-		else {
-			std::cout << " O ";
+			if (grid[std::make_tuple(x, y)].isDead)
+			{
+				std::cout << " X ";
+			} else {
+				std::cout << " O ";
+			}
 		}
 
-		if (i % gridSize.x -1 == 0)
-		{
-			std::cout << std::endl;
-		}
+		std::cout << std::endl;
 	}
 
+}
+
+void Grid::updateGrid()
+{
+	for (auto &p : grid)
+	{
+		p.second.isDead = p.second.willBeDead;
+	}
 }
 
 
