@@ -1,12 +1,15 @@
-// ConsoleApplication1.cpp : This file contains the 'main' function. Program execution begins and ends there.
+// main.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
 #include "pch.h"
 #include <iostream>
+#include "grid.h"
 
 int main()
 {
-    std::cout << "Hello World!\n"; 
+	Grid* grid = new Grid(25, 25);
+
+	grid->coutGrid();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

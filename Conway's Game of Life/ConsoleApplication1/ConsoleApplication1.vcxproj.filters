@@ -18,12 +18,24 @@
     <ClInclude Include="..\..\Conway%27s Game of Life\ConsoleApplication1\pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Conway%27s Game of Life\ConsoleApplication1\Grid.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Conway%27s Game of Life\ConsoleApplication1\Cell.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Conway%27s Game of Life\ConsoleApplication1\pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Conway%27s Game of Life\ConsoleApplication1\ConsoleApplication1.cpp">
+    <ClCompile Include="..\..\Conway%27s Game of Life\ConsoleApplication1\Grid.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Conway%27s Game of Life\ConsoleApplication1\Cell.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
