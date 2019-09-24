@@ -8,9 +8,11 @@ public:
 	Cell();
 	~Cell();
 
+	void setNeighbouringCells(std::vector<Cell*>);
+
 public:
-	bool isDead;
-	bool willBeDead = false;
-	std::vector<Cell> neighBouringCells;
+	bool isDead ;
+	bool willBeDead;
+	std::vector<Cell*> neighBouringCells;
 };
 

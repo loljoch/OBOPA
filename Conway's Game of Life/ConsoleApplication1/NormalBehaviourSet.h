@@ -8,6 +8,6 @@ public:
 	NormalBehaviourSet();
 	virtual ~NormalBehaviourSet();
 
-	bool amIAlive(rulebook _rule, std::vector<Cell> _cells) override;
+	bool amIAlive(rulebook _rule, std::vector<Cell*> _cells) override;
 };
 

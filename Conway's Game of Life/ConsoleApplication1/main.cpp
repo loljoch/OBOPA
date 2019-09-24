@@ -5,6 +5,7 @@
 #include <iostream>
 #include "grid.h"
 #include "NormalBehaviourSet.h"
+#include <Windows.h>
 
 AbstractBehaviour *currentBehaviour() 
 {
@@ -13,21 +14,44 @@ AbstractBehaviour *currentBehaviour()
 
 int main()
 {
+	
 	AbstractBehaviour *behaviour = currentBehaviour();
 
 	Grid* grid = new Grid(25, 25);
+	grid->giveNeighbouringCells();
+
+	grid->grid[std::make_tuple(12, 10)]->isDead = true;
+	grid->grid[std::make_tuple(12, 11)]->isDead = true;
+	grid->grid[std::make_tuple(12, 12)]->isDead = true;
+	grid->grid[std::make_tuple(12, 13)]->isDead = true;
+	grid->grid[std::make_tuple(12, 14)]->isDead = true;
+	grid->grid[std::make_tuple(12, 15)]->isDead = true;
+	grid->grid[std::make_tuple(10, 12)]->isDead = true;
+	grid->grid[std::make_tuple(11, 12)]->isDead = true;
+	grid->grid[std::make_tuple(12, 12)]->isDead = true;
+	grid->grid[std::make_tuple(13, 12)]->isDead = true;
+	grid->grid[std::make_tuple(14, 12)]->isDead = true;
+	grid->grid[std::make_tuple(15, 12)]->isDead = true;
 
 	grid->coutGrid();
 
-
 	//for (auto &p : grid->grid)
 	//{
-	//	p.second.willBeDead = behaviour->amIAlive(AbstractBehaviour::All, p.second.neighBouringCells);
+	//	//p.second->willBeDead << (behaviour->amIAlive(AbstractBehaviour::All, p.second->neighBouringCells));
+	//	p.second->willBeDead << true;
 	//}
 
-	//grid->updateGrid();
+	
 
-	//grid->coutGrid();
+	//std::cout << grid->grid[std::make_tuple(0, 0)]->neighBouringCells[0]->isDead;
+	for (size_t i = 0; i < 7; i++)
+	{
+		Sleep(2000);
+		grid->calculateBehaviour(behaviour);
+		grid->updateGrid();
+		grid->coutGrid();
+	}
+	
 	
 }
 

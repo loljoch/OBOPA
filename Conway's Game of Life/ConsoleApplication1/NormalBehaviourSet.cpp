@@ -7,15 +7,18 @@ NormalBehaviourSet::NormalBehaviourSet()
 }
 
 
-bool NormalBehaviourSet::amIAlive(rulebook _rule, std::vector<Cell> _cells)
+bool NormalBehaviourSet::amIAlive(rulebook _rule, std::vector<Cell*> _cells)
 {
 	int _numberOfAliveCells = 0;
 
 	for (size_t i = 0; i < _cells.size(); i++)
 	{
-		if (!_cells[i].isDead) 
+		if (_cells[i] != nullptr)
 		{
-			_numberOfAliveCells += 1;
+			if (!_cells[i]->isDead)
+			{
+				_numberOfAliveCells += 1;
+			}
 		}
 	}
 
@@ -42,15 +45,15 @@ bool NormalBehaviourSet::amIAlive(rulebook _rule, std::vector<Cell> _cells)
 	case AbstractBehaviour::Rule4:
 		break;
 	case AbstractBehaviour::All:
-		if (_numberOfAliveCells == 2 || _numberOfAliveCells == 3)
+		if (_numberOfAliveCells < 2 || _numberOfAliveCells > 3)
 		{
-			return true;
+			return false;
 		} else if (_numberOfAliveCells == 2 || _numberOfAliveCells == 3)
 		{
 			return true;
 		} else if (_numberOfAliveCells == 3)
 		{
-		return true;
+			return true;
 		}
 		break;
 	default:

@@ -3,7 +3,6 @@
 #include <iostream>
 #include <vector>
 
-
 Grid::Grid(int xSize, int ySize)
 {
 	gridSize[0] = xSize;
@@ -15,41 +14,51 @@ Grid::Grid(int xSize, int ySize)
 	{
 		for (size_t y = 0; y < ySize; y++)
 		{
-			grid[std::make_tuple(x, y)] = Cell();
+			grid[std::make_tuple(x, y)] = new Cell();
 		}
 	}
 
-	for (size_t x = 0; x < xSize; x++)
-	{
-		for (size_t y = 0; y < ySize; y++)
-		{
-			//Calculates the cells around the current cell
-			std::vector<Cell> cells = { 
-			grid[std::make_tuple(x+1, y)], 
-			grid[std::make_tuple(x+1, y-1)], 
-			grid[std::make_tuple(x, y-1)], 
-			grid[std::make_tuple(x-1, y-1)], 
-			grid[std::make_tuple(x-1, y)], 
-			grid[std::make_tuple(x-1, y+1)],
-			grid[std::make_tuple(x, y+1)], 
-			grid[std::make_tuple(x+1, y+1)], };
 
-			grid[std::make_tuple(x, y)].neighBouringCells = cells;
+}
+
+void Grid::giveNeighbouringCells() {
+	for (size_t x = 0; x < gridSize[0]; x++)
+	{
+		for (size_t y = 0; y < gridSize[1]; y++)
+		{
+			std::vector<Cell*> cells = {
+			grid[std::make_tuple(x + 1, y)],
+			grid[std::make_tuple(x + 1, y - 1)],
+			grid[std::make_tuple(x, y - 1)],
+			grid[std::make_tuple(x - 1, y - 1)],
+			grid[std::make_tuple(x - 1, y)],
+			grid[std::make_tuple(x - 1, y + 1)],
+			grid[std::make_tuple(x, y + 1)],
+			grid[std::make_tuple(x + 1, y + 1)], };
+
+			//Calculates the cells around the current cell
+			/*if (grid.count(std::make_tuple(x - 1, y - 1)) > 0) {
+				cells.insert(cells.begin(), grid[std::make_tuple(x - 1, y - 1)]);
+			}*/
+			
+			grid[std::make_tuple(x, y)]->setNeighbouringCells(cells);
+			
 		}
 	}
 }
 
 void Grid::coutGrid() 
 {
+	system("CLS");
 	for (size_t y = 0; y < gridSize[1]; y++)
 	{
 		for (size_t x = 0; x < gridSize[0]; x++)
 		{
-			if (grid[std::make_tuple(x, y)].isDead)
+			if (grid[std::make_tuple(x, y)]->isDead)
 			{
-				std::cout << " X ";
-			} else {
-				std::cout << " O ";
+				std::cout << " * ";
+			} else if (grid[std::make_tuple(x, y)]->isDead == false){
+				std::cout << " _ ";
 			}
 		}
 
@@ -60,9 +69,25 @@ void Grid::coutGrid()
 
 void Grid::updateGrid()
 {
-	for (auto &p : grid)
+	for (size_t y = 0; y < gridSize[1]; y++)
 	{
-		p.second.isDead = p.second.willBeDead;
+		for (size_t x = 0; x < gridSize[0]; x++)
+		{
+			grid[std::make_tuple(x, y)]->isDead = grid[std::make_tuple(x, y)]->willBeDead;
+		}
+	}
+}
+
+void Grid::calculateBehaviour(AbstractBehaviour* _behaviour)
+{
+	for (size_t y = 0; y < gridSize[1]; y++)
+	{
+		for (size_t x = 0; x < gridSize[0]; x++)
+		{
+			grid[std::make_tuple(x, y)]->willBeDead = !_behaviour->amIAlive(AbstractBehaviour::All, grid[std::make_tuple(x, y)]->neighBouringCells);
+		}
+
+		std::cout << std::endl;
 	}
 }
 
