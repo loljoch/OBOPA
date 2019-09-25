@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "Module.h"
 
+#include "Student.h"
+
 
 
 Module::Module(std::string _name, int _worthEC)
@@ -15,10 +17,11 @@ Module::~Module()
 
 void Module::printModule()
 {
+	std::cout << "_________________________________________________________________________________" << std::endl;
 	std::cout << std::endl << name << std::endl << "------------------------------------\n";
 
 	if (docent != nullptr) {
-		std::cout << "Wordt gegeven door " << docent;
+		std::cout << "Wordt gegeven door " << docent->name;
 	}
 	else {
 		std::cout << "Nog geen docent aanwezig";
@@ -32,8 +35,8 @@ void Module::printModule()
 
 	for (size_t i = 0; i < students.size(); i++)
 	{
-		std::cout << students[i]->name << "					" << students[i]->currentEC << std::endl;
+		std::cout << students[i]->name << "					" << students[i]->getCurrentEC() << std::endl;
 	}
 
-	std::cout << "------------------------------------\n" << std::endl;
+	std::cout << "_________________________________________________________________________________\n\n\n\n" << std::endl;
 }

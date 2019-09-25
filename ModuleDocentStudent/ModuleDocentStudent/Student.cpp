@@ -5,20 +5,33 @@
 Student::Student(std::string _name)
 {
 	name = _name;
+	moduleVolgend = std::vector<Module*>();
 }
 
 Student::~Student()
 {
 }
 
-void Student::volgModule(Module * _moduleNaam)
+int Student::getCurrentEC()
+{
+	int _currentEC = 0;
+
+	for (size_t i = 0; i < moduleVolgend.size(); i++)
+	{
+		_currentEC += moduleVolgend[i]->worthEC;
+	}
+
+	return _currentEC;
+}
+
+void Student::volgModule(Module* _moduleNaam)
 {
 	moduleVolgend.push_back(_moduleNaam);
 
 	_moduleNaam->students.push_back(this);
 }
 
-void Student::laatModuleVallen(Module * _moduleNaam)
+void Student::laatModuleVallen(Module* _moduleNaam)
 {
 	auto it = std::find(moduleVolgend.begin(), moduleVolgend.end(), _moduleNaam);
 	moduleVolgend.erase(it);

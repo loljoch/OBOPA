@@ -3,8 +3,9 @@
 #include <string>
 #include <vector>
 #include "Docent.h"
-#include "Student.h"
 #include <iostream>
+
+class Student; // forward declaration
 
 class Module
 {
