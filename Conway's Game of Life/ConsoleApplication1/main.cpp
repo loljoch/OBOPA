@@ -5,11 +5,13 @@
 #include <iostream>
 #include "grid.h"
 #include "NormalBehaviourSet.h"
+#include "ElevatorBehaviourSet.h"
+#include "RandomBehaviourSet.h"
 #include <Windows.h>
 
 AbstractBehaviour *currentBehaviour() 
 {
-	return new NormalBehaviourSet();
+	return new RandomBehaviourSet();
 }
 
 int main()
@@ -32,25 +34,25 @@ int main()
 	grid->grid[std::make_tuple(13, 12)]->isDead = true;
 	grid->grid[std::make_tuple(14, 12)]->isDead = true;
 	grid->grid[std::make_tuple(15, 12)]->isDead = true;
+	grid->grid[std::make_tuple(11, 12)]->isDead = true;
+	grid->grid[std::make_tuple(11, 13)]->isDead = true;
+	grid->grid[std::make_tuple(11, 14)]->isDead = true;
+	grid->grid[std::make_tuple(11, 15)]->isDead = true;
+	grid->grid[std::make_tuple(11, 16)]->isDead = true;
+	grid->grid[std::make_tuple(11, 11)]->isDead = true;
 
 	grid->coutGrid();
 
-	//for (auto &p : grid->grid)
-	//{
-	//	//p.second->willBeDead << (behaviour->amIAlive(AbstractBehaviour::All, p.second->neighBouringCells));
-	//	p.second->willBeDead << true;
-	//}
-
-	
-
-	//std::cout << grid->grid[std::make_tuple(0, 0)]->neighBouringCells[0]->isDead;
-	for (size_t i = 0; i < 7; i++)
+	Sleep(2000);
+	char currentCin = 'a';
+	do
 	{
-		Sleep(2000);
 		grid->calculateBehaviour(behaviour);
 		grid->updateGrid();
 		grid->coutGrid();
-	}
+		//Sleep(100);
+		std::cin >> currentCin;
+	} while (currentCin != 'q'/*true*/);
 	
 	
 }

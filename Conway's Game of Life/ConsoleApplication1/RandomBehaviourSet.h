@@ -1,12 +1,11 @@
 #pragma once
 #include "AbstractBehaviour.h"
-
-
-class NormalBehaviourSet : public AbstractBehaviour
+class RandomBehaviourSet :
+	public AbstractBehaviour
 {
 public:
-	NormalBehaviourSet();
-	virtual ~NormalBehaviourSet();
+	RandomBehaviourSet();
+	virtual ~RandomBehaviourSet();
 
 	bool amIAlive(rulebook _rule, std::vector<Cell*> _cells, bool _dead) override;
 };

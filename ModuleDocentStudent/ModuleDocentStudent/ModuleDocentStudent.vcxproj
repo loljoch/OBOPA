@@ -20,11 +20,10 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{AB0A64DC-FADC-4F9F-9818-52E1E77119FC}</ProjectGuid>
+    <ProjectGuid>{2038E461-2B29-4352-A8C7-EE8A1F33077B}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>ConsoleApplication1</RootNamespace>
+    <RootNamespace>ModuleDocentStudent</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
-    <ProjectName>ConwayGameOfLife</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -152,28 +151,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Conway%27s Game of Life\ConsoleApplication1\AbstractBehaviour.h" />
-    <ClInclude Include="..\..\Conway%27s Game of Life\ConsoleApplication1\Cell.h" />
-    <ClInclude Include="..\..\Conway%27s Game of Life\ConsoleApplication1\ElevatorBehaviourSet.h" />
-    <ClInclude Include="..\..\Conway%27s Game of Life\ConsoleApplication1\Grid.h" />
-    <ClInclude Include="..\..\Conway%27s Game of Life\ConsoleApplication1\NormalBehaviourSet.h" />
-    <ClInclude Include="..\..\Conway%27s Game of Life\ConsoleApplication1\pch.h" />
-    <ClInclude Include="..\..\Conway%27s Game of Life\ConsoleApplication1\RandomBehaviourSet.h" />
+    <ClInclude Include="Docent.h" />
+    <ClInclude Include="Module.h" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="Student.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Conway%27s Game of Life\ConsoleApplication1\AbstractBehaviour.cpp" />
-    <ClCompile Include="..\..\Conway%27s Game of Life\ConsoleApplication1\Cell.cpp" />
-    <ClCompile Include="..\..\Conway%27s Game of Life\ConsoleApplication1\ElevatorBehaviourSet.cpp" />
-    <ClCompile Include="..\..\Conway%27s Game of Life\ConsoleApplication1\NormalBehaviourSet.cpp" />
-    <ClCompile Include="..\..\Conway%27s Game of Life\ConsoleApplication1\RandomBehaviourSet.cpp" />
+    <ClCompile Include="Docent.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="..\..\Conway%27s Game of Life\ConsoleApplication1\Grid.cpp" />
-    <ClCompile Include="..\..\Conway%27s Game of Life\ConsoleApplication1\pch.cpp">
+    <ClCompile Include="Module.cpp" />
+    <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Student.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

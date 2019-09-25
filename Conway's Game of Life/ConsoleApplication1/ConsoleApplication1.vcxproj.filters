@@ -30,6 +30,12 @@
     <ClInclude Include="..\..\Conway%27s Game of Life\ConsoleApplication1\NormalBehaviourSet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Conway%27s Game of Life\ConsoleApplication1\ElevatorBehaviourSet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Conway%27s Game of Life\ConsoleApplication1\RandomBehaviourSet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Conway%27s Game of Life\ConsoleApplication1\pch.cpp">
@@ -48,6 +54,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Conway%27s Game of Life\ConsoleApplication1\NormalBehaviourSet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Conway%27s Game of Life\ConsoleApplication1\ElevatorBehaviourSet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Conway%27s Game of Life\ConsoleApplication1\RandomBehaviourSet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

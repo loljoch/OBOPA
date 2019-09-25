@@ -56,9 +56,9 @@ void Grid::coutGrid()
 		{
 			if (grid[std::make_tuple(x, y)]->isDead)
 			{
-				std::cout << " * ";
+				std::cout << "   ";
 			} else if (grid[std::make_tuple(x, y)]->isDead == false){
-				std::cout << " _ ";
+				std::cout << " o ";
 			}
 		}
 
@@ -84,7 +84,7 @@ void Grid::calculateBehaviour(AbstractBehaviour* _behaviour)
 	{
 		for (size_t x = 0; x < gridSize[0]; x++)
 		{
-			grid[std::make_tuple(x, y)]->willBeDead = !_behaviour->amIAlive(AbstractBehaviour::All, grid[std::make_tuple(x, y)]->neighBouringCells);
+			grid[std::make_tuple(x, y)]->willBeDead = !_behaviour->amIAlive(AbstractBehaviour::All, grid[std::make_tuple(x, y)]->neighBouringCells, grid[std::make_tuple(x, y)]->isDead);
 		}
 
 		std::cout << std::endl;

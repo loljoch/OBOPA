@@ -17,6 +17,6 @@ public:
 	AbstractBehaviour();
 	virtual ~AbstractBehaviour();
 
-	virtual bool amIAlive(rulebook _rule, std::vector<Cell*> _cells) =0;
+	virtual bool amIAlive(rulebook _rule, std::vector<Cell*> _cells, bool _dead) =0;
 };
 

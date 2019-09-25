@@ -7,7 +7,7 @@ NormalBehaviourSet::NormalBehaviourSet()
 }
 
 
-bool NormalBehaviourSet::amIAlive(rulebook _rule, std::vector<Cell*> _cells)
+bool NormalBehaviourSet::amIAlive(rulebook _rule, std::vector<Cell*> _cells, bool _dead)
 {
 	int _numberOfAliveCells = 0;
 
@@ -25,19 +25,19 @@ bool NormalBehaviourSet::amIAlive(rulebook _rule, std::vector<Cell*> _cells)
 	switch (_rule)
 	{
 	case AbstractBehaviour::Rule1:
-		if (_numberOfAliveCells < 2 || _numberOfAliveCells > 3) 
+		if ((_numberOfAliveCells < 2 || _numberOfAliveCells > 3) && !_dead)
 		{
 			return false;
 		}
 		break;
 	case AbstractBehaviour::Rule2:
-		if (_numberOfAliveCells == 2 || _numberOfAliveCells == 3)
+		if ((_numberOfAliveCells == 2 || _numberOfAliveCells == 3) && !_dead)
 		{
 			return true;
 		}
 		break;
 	case AbstractBehaviour::Rule3:
-		if (_numberOfAliveCells == 3)
+		if (_numberOfAliveCells == 3 && _dead)
 		{
 			return true;
 		}
@@ -45,10 +45,10 @@ bool NormalBehaviourSet::amIAlive(rulebook _rule, std::vector<Cell*> _cells)
 	case AbstractBehaviour::Rule4:
 		break;
 	case AbstractBehaviour::All:
-		if (_numberOfAliveCells < 2 || _numberOfAliveCells > 3)
+		if ((_numberOfAliveCells < 2 || _numberOfAliveCells > 3))
 		{
 			return false;
-		} else if (_numberOfAliveCells == 2 || _numberOfAliveCells == 3)
+		} else if ((_numberOfAliveCells == 2 || _numberOfAliveCells == 3))
 		{
 			return true;
 		} else if (_numberOfAliveCells == 3)
