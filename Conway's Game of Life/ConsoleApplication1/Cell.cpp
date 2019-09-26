@@ -5,7 +5,7 @@
 Cell::Cell()
 {
 	neighBouringCells.reserve(8);
-	isDead = false;
+	isDead = true;
 	willBeDead = false;
 }
 

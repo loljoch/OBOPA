@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\NPC">
+      <UniqueIdentifier>{b326d859-9d55-4279-97ac-05c547e39d76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\NPC\Decorator">
+      <UniqueIdentifier>{61ebd6c2-5385-48b5-92c1-d9b3f9242014}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\NPC">
+      <UniqueIdentifier>{6d02c9e7-7cf5-4f4d-bb5d-35eef0e508cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\NPC\Decorator">
+      <UniqueIdentifier>{301b6133-db35-40dd-bc08-beafd5eb153e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Decorator.h">
+      <Filter>Header Files\NPC\Decorator</Filter>
+    </ClInclude>
+    <ClInclude Include="FarmerDecorator.h">
+      <Filter>Header Files\NPC\Decorator</Filter>
+    </ClInclude>
+    <ClInclude Include="ElfNPC.h">
+      <Filter>Header Files\NPC</Filter>
+    </ClInclude>
+    <ClInclude Include="NPC.h">
+      <Filter>Header Files\NPC</Filter>
+    </ClInclude>
+    <ClInclude Include="OrcNPC.h">
+      <Filter>Header Files\NPC</Filter>
+    </ClInclude>
+    <ClInclude Include="ShamanDecorator.h">
+      <Filter>Header Files\NPC\Decorator</Filter>
+    </ClInclude>
+    <ClInclude Include="SoldierDecorator.h">
+      <Filter>Header Files\NPC\Decorator</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Decorator.cpp">
+      <Filter>Source Files\NPC\Decorator</Filter>
+    </ClCompile>
+    <ClCompile Include="FarmerDecorator.cpp">
+      <Filter>Source Files\NPC\Decorator</Filter>
+    </ClCompile>
+    <ClCompile Include="NPC.cpp">
+      <Filter>Source Files\NPC</Filter>
+    </ClCompile>
+    <ClCompile Include="ElfNPC.cpp">
+      <Filter>Source Files\NPC</Filter>
+    </ClCompile>
+    <ClCompile Include="OrcNPC.cpp">
+      <Filter>Source Files\NPC</Filter>
+    </ClCompile>
+    <ClCompile Include="SoldierDecorator.cpp">
+      <Filter>Source Files\NPC\Decorator</Filter>
+    </ClCompile>
+    <ClCompile Include="ShamanDecorator.cpp">
+      <Filter>Source Files\NPC\Decorator</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

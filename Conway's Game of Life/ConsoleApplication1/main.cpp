@@ -11,7 +11,7 @@
 
 AbstractBehaviour *currentBehaviour() 
 {
-	return new RandomBehaviourSet();
+	return new NormalBehaviourSet();
 }
 
 int main()
