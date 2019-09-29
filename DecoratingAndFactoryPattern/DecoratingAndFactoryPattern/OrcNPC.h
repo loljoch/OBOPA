@@ -6,7 +6,7 @@ class OrcNPC :
 	public NPC
 {
 public:
-	OrcNPC();
+	OrcNPC(std::string _name);
 	virtual ~OrcNPC();
 
 	// Inherited via NPC

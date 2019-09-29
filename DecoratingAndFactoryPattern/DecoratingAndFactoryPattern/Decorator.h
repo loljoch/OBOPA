@@ -4,7 +4,7 @@ class Decorator : public NPC
 {
 public:
 
-	Decorator(NPC* npc);
+	Decorator(NPC* _npc);
 
 	virtual ~Decorator();
 

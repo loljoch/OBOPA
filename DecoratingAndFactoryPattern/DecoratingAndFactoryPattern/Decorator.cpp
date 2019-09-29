@@ -3,9 +3,13 @@
 
 
 
-Decorator::Decorator(NPC* npc)
+Decorator::Decorator(NPC* _npc)
 {
-	npc = npc;
+	npc = _npc;
+}
+
+Decorator::~Decorator()
+{
 }
 
 void Decorator::render() const

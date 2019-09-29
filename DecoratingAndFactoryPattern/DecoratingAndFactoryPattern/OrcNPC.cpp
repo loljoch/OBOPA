@@ -2,8 +2,9 @@
 #include "OrcNPC.h"
 
 
-OrcNPC::OrcNPC()
+OrcNPC::OrcNPC(std::string _name)
 {
+	name = _name;
 }
 
 

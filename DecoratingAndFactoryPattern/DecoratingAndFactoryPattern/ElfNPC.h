@@ -6,7 +6,7 @@ class ElfNPC :
 	public NPC
 {
 public:
-	ElfNPC();
+	ElfNPC(std::string _name);
 	virtual ~ElfNPC();
 
 	// Inherited via NPC

@@ -13,5 +13,5 @@ FarmerDecorator::~FarmerDecorator()
 void FarmerDecorator::render() const
 {
 	Decorator::render();
-	std::cout << "Farmer";
+	std::cout << "Farmer\n";
 }

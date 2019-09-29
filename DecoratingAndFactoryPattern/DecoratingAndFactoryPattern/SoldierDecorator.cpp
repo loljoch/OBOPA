@@ -13,5 +13,5 @@ SoldierDecorator::~SoldierDecorator()
 void SoldierDecorator::render() const
 {
 	Decorator::render();
-	std::cout << "Soldier";
+	std::cout << "Soldier\n";
 }

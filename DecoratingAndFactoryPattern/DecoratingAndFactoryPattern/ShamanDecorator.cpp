@@ -15,5 +15,5 @@ ShamanDecorator::~ShamanDecorator()
 void ShamanDecorator::render() const
 {
 	Decorator::render();
-	std::cout << "Shaman";
+	std::cout << "Shaman\n";
 }

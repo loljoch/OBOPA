@@ -11,12 +11,89 @@
 #include "OrcNPC.h"
 #include "ElfNPC.h"
 
+   /// <summary>Returns an NPC class with a species and role
+   /// <param name='_species'>0: Orc, 1: Elf</param>
+   /// <param name='_isFarmer'>Is this NPC a farmer?</param>
+   /// <param name='_isShaman'>Is this NPC a shaman?</param>
+   /// <param name='_isSoldier'>Is this NPC a soldier?</param>
+   /// <param name='_npcName'>Name of the NPC</param>
+   /// </summary>
+NPC* createNpc(int _species, bool _isFarmer, bool _isShaman, bool _isSoldier, std::string _npcName) {
+	NPC* npc;
+
+	switch (_species)
+	{
+	case 0:
+		if (_isFarmer) {
+			if (_isSoldier) {
+				if (_isShaman) {
+					npc = new FarmerDecorator(new SoldierDecorator(new ShamanDecorator(new ElfNPC(_npcName))));
+				}
+				else {
+					npc = new FarmerDecorator(new SoldierDecorator(new ElfNPC(_npcName)));
+				}
+			}
+			else if (_isShaman) {
+				npc = new FarmerDecorator(new ShamanDecorator(new ElfNPC(_npcName)));
+			}
+			else {
+				npc = new FarmerDecorator(new ElfNPC(_npcName));
+			}
+		}
+		else if (_isSoldier) {
+			if (_isShaman) {
+				npc = new SoldierDecorator(new ShamanDecorator(new ElfNPC(_npcName)));
+			}
+			else {
+				npc = new SoldierDecorator(new ElfNPC(_npcName));
+			}
+		}
+		else if (_isShaman) {
+			npc = new ShamanDecorator(new ElfNPC(_npcName));
+		}
+		break;
+	case 1:
+		if (_isFarmer) {
+			if (_isSoldier) {
+				if (_isShaman) {
+					npc = new FarmerDecorator(new SoldierDecorator(new ShamanDecorator(new OrcNPC(_npcName))));
+				}
+				else {
+					npc = new FarmerDecorator(new SoldierDecorator(new OrcNPC(_npcName)));
+				}
+			}
+			else if (_isShaman) {
+				npc = new FarmerDecorator(new ShamanDecorator(new OrcNPC(_npcName)));
+			}
+			else {
+				npc = new FarmerDecorator(new OrcNPC(_npcName));
+			}
+		}
+		else if (_isSoldier) {
+			if (_isShaman) {
+				npc = new SoldierDecorator(new ShamanDecorator(new OrcNPC(_npcName)));
+			}
+			else {
+				npc = new SoldierDecorator(new OrcNPC(_npcName));
+			}
+		}
+		else if (_isShaman) {
+			npc = new ShamanDecorator(new OrcNPC(_npcName));
+		}
+		break;
+	default:
+		std::cout << "Incorrect species, can't process";
+		break;
+	}
+
+	return npc;
+}
+
 
 int main()
 {
-	//NPC* newNpc = new ShamanDecorator(new FarmerDecorator(new SoldierDecorator(new ElfNPC())));
-
-	//newNpc->render();
+	NPC* newNpc = createNpc(1, true, true, true, "Elvis");
+	newNpc->render();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
