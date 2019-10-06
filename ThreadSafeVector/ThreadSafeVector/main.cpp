@@ -1,20 +1,12 @@
-// BankOperator.cpp : This file contains the 'main' function. Program execution begins and ends there.
+// ThreadSafeVector.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
 #include "pch.h"
 #include <iostream>
-#include "Bankrekening.h"
 
 int main()
 {
-	Bankrekening bankRekening;
-
-	std::cout << bankRekening << std::endl;
-
-	bankRekening += Transactie(2, { 2, 9, 2019 });
-	bankRekening += Transactie(-18.6, { 2, 2, 2017 });
-
-	std::cout << bankRekening << std::endl;
+    std::cout << "Hello World!\n"; 
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

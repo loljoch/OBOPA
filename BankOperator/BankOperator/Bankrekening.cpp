@@ -38,6 +38,5 @@ std::ostream & operator<<(std::ostream & os, const Bankrekening & _bankrekening)
 	else {
 		os << "Geen transacties zijn gemaakt op dit account\n";
 	}
-	os << "______________________________________________________________________________\n";
 	return os;
 }
