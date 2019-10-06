@@ -58,8 +58,6 @@ int main()
 	std::cout << stringArray;
 	sortArray(stringArray, 10);
 	std::cout << stringArray;
-
-
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
