@@ -4,19 +4,29 @@
 #include "pch.h"
 #include <iostream>
 #include <thread>
-#include "ConcurrentVector.h"
+#include "SafeVector.h"
 
 
+SafeVector<int> concVector;
+
+void addItem(int _item) {
+	for (size_t i = 0; i < 1000; i++)
+	{
+		concVector.add(_item);
+	}
+}
 
 
 int main()
 {
-	//ConcurrentVector<int> concVector;
-	//concVector.addItem(99);
+	std::thread oneThread(addItem, 53);
+	std::thread twoThread(addItem, 66);
 
-	//std::cout << concVector.getItemAt(0);
-	
-	std::vector<std::thread> threads;
+	oneThread.join();
+	twoThread.join();
+
+	concVector.testThreading();		//I'm not sure if this tests the threading right
+	std::cout << concVector.get(2);
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

@@ -18,7 +18,7 @@
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ConcurrentVector.h">
+    <ClInclude Include="SafeVector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -29,7 +29,7 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ConcurrentVector.cpp">
+    <ClCompile Include="SafeVector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
