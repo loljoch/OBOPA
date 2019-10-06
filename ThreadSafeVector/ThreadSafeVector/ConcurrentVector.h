@@ -12,13 +12,14 @@ public:
 
 	std::mutex mutex;
 
-	ConcurrentVector(T);
+	ConcurrentVector();
 	virtual ~ConcurrentVector();
 
 	T* getItemAt(int);
 
 	void addItem(T);
-	void addItem(T, int);
+
+	void addItemAt(T, int);
 
 	void removeItem(int);
 

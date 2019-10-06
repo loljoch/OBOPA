@@ -2,9 +2,9 @@
 #include "ConcurrentVector.h"
 
 template<typename T>
-ConcurrentVector<T>::ConcurrentVector(T _item)
+ConcurrentVector<T>::ConcurrentVector()
 {
-	list = new std::vector<_item>;
+	list = std::vector<T>;
 }
 
 template<typename T>
@@ -28,15 +28,21 @@ void ConcurrentVector<T>::addItem(T _item)
 }
 
 template<typename T>
-void ConcurrentVector<T>::addItem(T _item, int _location)
+void ConcurrentVector<T>::addItemAt(T _item, int _location)
 {
-	list.push_back(_item, _location);
+	{
+		std::lock_guard<std::mutex> guard(mutex);
+		list.push_back(_item, _location);
+	}
 }
 
 template<typename T>
 void ConcurrentVector<T>::removeItem(int _location)
 {
-	list.erase(list.begin() + _location);
+	{
+		std::lock_guard<std::mutex> guard(mutex);
+		list.erase(list.begin() + _location);
+	}
 }
 
 template<typename T>
