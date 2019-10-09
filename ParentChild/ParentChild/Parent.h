@@ -2,7 +2,6 @@
 
 #include <string>
 #include <ostream>
-#include <memory>
 #include "Child.h"
 
 class Parent {
@@ -11,6 +10,9 @@ public:
 	Parent(const Parent& other);
 	virtual ~Parent();
 	Parent& operator=(const Parent& other);
+
+	void removeChild();
+	int childCount();
 
 	friend std::ostream& operator<<(std::ostream& os, const Parent& parent);
 

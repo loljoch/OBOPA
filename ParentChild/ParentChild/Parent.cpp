@@ -12,7 +12,7 @@ Parent::Parent(std::string name) {
 Parent::Parent(const Parent& other) {
 	std::cout << "Parent cctor" << std::endl;
 	this->name = other.name;
-	uniqueChild = std::make_unique<Child>("Yeet");
+	uniqueChild = std::make_unique<Child>(*other.uniqueChild.get());
 }
 
 Parent::~Parent() {
@@ -25,11 +25,19 @@ Parent& Parent::operator=(const Parent& other) {
 	if (this == &other) return *this;
 
 	this->name = other.name;
+	uniqueChild = std::make_unique<Child>(*other.uniqueChild.get());
 	
-	auto t = std::move(other.uniqueChild);
-	uniqueChild = std::make_unique<Child>("Hmmmm");
-
 	return *this;
+}
+
+void Parent::removeChild()
+{
+	uniqueChild.reset();
+}
+
+int Parent::childCount()
+{
+	return (uniqueChild != nullptr);
 }
 
 std::ostream& operator<<(std::ostream& os, const Parent& parent) {
