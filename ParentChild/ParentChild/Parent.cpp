@@ -40,6 +40,16 @@ int Parent::childCount()
 	return (uniqueChild != nullptr);
 }
 
+Parent::Parent(Parent&& other) noexcept
+{
+	std::cout << "A parent has used the move constructor" << std::endl;
+
+	name = std::move(other.name);
+	uniqueChild = std::move(other.uniqueChild);
+
+	other.name = "";
+}
+
 std::ostream& operator<<(std::ostream& os, const Parent& parent) {
 	os << "parent name: " << parent.name << "," << *parent.uniqueChild;
 	return os;

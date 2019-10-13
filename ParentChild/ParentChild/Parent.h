@@ -16,6 +16,8 @@ public:
 
 	friend std::ostream& operator<<(std::ostream& os, const Parent& parent);
 
+	Parent(Parent&& other) noexcept;
+
 private:
 	std::string name;
 

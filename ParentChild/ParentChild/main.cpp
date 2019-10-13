@@ -8,6 +8,12 @@
 #include <string>
 #include "Parent.h"
 
+Parent usingTheParentAsAParameter(Parent& _parent) 
+{
+	Parent justChecking = Parent(_parent);
+	return justChecking;
+}
+
 int main() {
 
 	std::shared_ptr<Parent> sharedParent = std::make_shared<Parent>("SharedParent");
@@ -17,10 +23,14 @@ int main() {
 	std::shared_ptr<Parent> sP4 = sharedParent;
 	std::shared_ptr<Parent> sP5 = sharedParent;
 
+	usingTheParentAsAParameter(*sharedParent);
+
 	std::cout << "Use count: " << sharedParent.use_count() << std::endl;
 
 	sP4->removeChild();
 	std::cout << "Child count: " << sP3->childCount() << std::endl;
+
+	
 
 	//Parent* p1 = new Parent("Parent1");
 	//std::cout << "p1:" << *p1 << std::endl;
